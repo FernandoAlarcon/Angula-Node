@@ -2,17 +2,28 @@ import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
-import indexRoutes from './routes/indexRoutes';
-import gamesRoutes from './routes/gamesRoutes';
+//import passport from "passport";
 
+import indexRoutes from './routes/indexRoutes';
+import clientesRoutes from './routes/clientes'; 
+
+
+
+const flash = require('connect-flash');
+const session = require('express-session');
+const { database } = require('./keys');
+const MySQLStore = require('express-mysql-session')(session);
+
+ 
 class Server {
 
+
     public app: Application;
-    
+
     constructor() {
         this.app = express();
         this.config();
-        this.routes();
+        this.routes(); 
     }
 
     config(): void {
@@ -21,12 +32,16 @@ class Server {
         this.app.use(morgan('dev'));
         this.app.use(cors());
         this.app.use(express.json());
-        this.app.use(express.urlencoded({extended: false}));
+        this.app.use(express.urlencoded({extended: true}));
+
+
     }
 
     routes(): void {
         this.app.use('/', indexRoutes);
-        this.app.use('/api/games', gamesRoutes);
+        this.app.use('/api/clientes', clientesRoutes);  
+        //this.app.use('/', clientesRoutes); 
+        
     }
 
     start() {
