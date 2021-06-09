@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GamesListComponent } from './components/games-list/games-list.component';
-import { GameFormComponent } from './components/game-form/game-form.component';
+// Componentes
+import { HomeComponent } from './components/home/home.component'; 
+import { ClientesComponent } from './components/clientes/clientes.component';
+
+import { from } from 'rxjs';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/games',
+    redirectTo: '/Home',
     pathMatch: 'full'
   },
   {
-    path: 'games',
-    component: GamesListComponent
-  },
+    path: 'Home',
+    component: HomeComponent
+  }, 
   {
-    path: 'games/add',
-    component: GameFormComponent
-  },
-  {
-    path: 'games/edit/:id',
-    component: GameFormComponent
-  }
+    path: 'clientes',
+    component: ClientesComponent
+  } 
 ];
 
 @NgModule({
