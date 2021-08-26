@@ -1,5 +1,5 @@
  # InfoServices
- This code are create for Fazt complemented with Fernando Alarcon - CRUD in Angular whit endpoints in Node 
+ This code are create for Fazt complemented and chaged with Fernando Alarcon - CRUD in Angular whit endpoints in Node 
  
  ### git clone
  
